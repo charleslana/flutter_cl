@@ -10,7 +10,8 @@ enum AppRoute {
   slide,
   rotation,
   language,
-  pageview
+  pageview,
+  floating
 }
 
 extension AppRouteExtension on AppRoute {
@@ -40,6 +41,8 @@ extension AppRouteExtension on AppRoute {
         return '/language';
       case AppRoute.pageview:
         return '/pageview';
+      case AppRoute.floating:
+        return '/floating';
       default:
         return '';
     }

@@ -61,6 +61,10 @@ class MainPage extends StatelessWidget {
               onPressed: () => context.push(AppRoute.pageview.path),
               child: const Text('Pageview page'),
             ),
+            TextButton(
+              onPressed: () => context.push(AppRoute.floating.path),
+              child: const Text('Floating page'),
+            ),
             OutlinedButton(
               onPressed: () => getIt<AuthService>().logout(),
               child: const Text('Logout'),

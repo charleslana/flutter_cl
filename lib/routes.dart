@@ -3,6 +3,7 @@ import 'package:flutter_cl/entities/detail.dart';
 import 'package:flutter_cl/enum/app_route.dart';
 import 'package:flutter_cl/pages/blank/blank_page.dart';
 import 'package:flutter_cl/pages/detail/detail_page.dart';
+import 'package:flutter_cl/pages/floating/floating_page.dart';
 import 'package:flutter_cl/pages/fullscreen/fullscreen_page.dart';
 import 'package:flutter_cl/pages/home/home_page.dart';
 import 'package:flutter_cl/pages/language/language_page.dart';
@@ -63,6 +64,10 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: AppRoute.pageview.path,
       builder: (context, state) => const PageviewPage(),
+    ),
+    GoRoute(
+      path: AppRoute.floating.path,
+      builder: (context, state) => const FloatingPage(),
     ),
     GoRoute(
       path: AppRoute.fullscreen.path,
