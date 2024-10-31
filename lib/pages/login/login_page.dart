@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cl/services/auth_service.dart';
+import 'package:flutter_cl/services/translation_service.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,9 +8,11 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final translationService = context.watch<TranslationService>();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('login title'),
+        title: Text(translationService.translate('hello')),
         centerTitle: true,
       ),
       body: Center(

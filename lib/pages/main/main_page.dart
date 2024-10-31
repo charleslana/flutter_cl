@@ -53,6 +53,10 @@ class MainPage extends StatelessWidget {
               onPressed: () => context.push('${AppRoute.detail.path}/1'),
               child: const Text('Detail page'),
             ),
+            TextButton(
+              onPressed: () => context.push(AppRoute.language.path),
+              child: const Text('Language page'),
+            ),
             OutlinedButton(
               onPressed: () => context.read<AuthService>().logout(),
               child: const Text('Logout'),

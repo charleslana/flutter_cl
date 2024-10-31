@@ -5,6 +5,7 @@ import 'package:flutter_cl/pages/blank/blank_page.dart';
 import 'package:flutter_cl/pages/detail/detail_page.dart';
 import 'package:flutter_cl/pages/fullscreen/fullscreen_page.dart';
 import 'package:flutter_cl/pages/home/home_page.dart';
+import 'package:flutter_cl/pages/language/language_page.dart';
 import 'package:flutter_cl/pages/login/login_page.dart';
 import 'package:flutter_cl/pages/main/main_page.dart';
 import 'package:flutter_cl/pages/transition/transition_page.dart';
@@ -54,6 +55,10 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: AppRoute.login.path,
       builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: AppRoute.language.path,
+      builder: (context, state) => const LanguagePage(),
     ),
     GoRoute(
       path: AppRoute.fullscreen.path,
