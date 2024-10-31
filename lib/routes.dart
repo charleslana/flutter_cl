@@ -9,10 +9,9 @@ import 'package:flutter_cl/pages/language/language_page.dart';
 import 'package:flutter_cl/pages/login/login_page.dart';
 import 'package:flutter_cl/pages/main/main_page.dart';
 import 'package:flutter_cl/pages/transition/transition_page.dart';
+import 'package:flutter_cl/providers.dart';
 import 'package:flutter_cl/services/auth_service.dart';
 import 'package:go_router/go_router.dart';
-
-final authService = AuthService();
 
 final GoRouter routes = GoRouter(
   errorBuilder: ((context, state) => Scaffold(
@@ -27,10 +26,10 @@ final GoRouter routes = GoRouter(
           ),
         ),
       )),
-  refreshListenable: authService,
+  refreshListenable: getIt<AuthService>(),
   redirect: (context, state) {
     print('route: ${state.uri.path}');
-    final isAuthenticated = authService.isAuthenticated;
+    final isAuthenticated = getIt<AuthService>().isAuthenticated;
     final isLoginRoute = state.uri.path == AppRoute.login.path;
     if (!isAuthenticated) {
       return isLoginRoute ? null : AppRoute.login.path;

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cl/services/translation_service.dart';
-import 'package:provider/provider.dart';
+import 'package:watch_it/watch_it.dart';
 
-class LanguagePage extends StatelessWidget {
+class LanguagePage extends StatelessWidget with WatchItMixin {
   const LanguagePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final translationService = context.watch<TranslationService>();
+    final translationService = watchIt<TranslationService>();
 
     return Scaffold(
       appBar: AppBar(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cl/providers.dart';
 import 'package:flutter_cl/services/auth_service.dart';
 import 'package:flutter_cl/services/translation_service.dart';
-import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final translationService = context.watch<TranslationService>();
+    final translationService = getIt<TranslationService>();
 
     return Scaffold(
       appBar: AppBar(
@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
       ),
       body: Center(
         child: OutlinedButton(
-          onPressed: () => context.read<AuthService>().login(),
+          onPressed: () => getIt<AuthService>().login(),
           child: const Text('Login'),
         ),
       ),

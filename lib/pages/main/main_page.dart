@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cl/enum/app_route.dart';
+import 'package:flutter_cl/providers.dart';
 import 'package:flutter_cl/services/auth_service.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -58,7 +58,7 @@ class MainPage extends StatelessWidget {
               child: const Text('Language page'),
             ),
             OutlinedButton(
-              onPressed: () => context.read<AuthService>().logout(),
+              onPressed: () => getIt<AuthService>().logout(),
               child: const Text('Logout'),
             ),
           ],

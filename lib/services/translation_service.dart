@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class TranslationService extends ChangeNotifier {
   TranslationService() {
     print('TranslationService initialized');
-    _detectSystemLocale();
   }
 
   Locale _locale = const Locale('en');
@@ -33,7 +32,7 @@ class TranslationService extends ChangeNotifier {
     notifyListeners();
   }
 
-  void _detectSystemLocale() {
+  Future<void> detectSystemLocale() async {
     final systemLocale = WidgetsBinding.instance.platformDispatcher.locale;
     if (systemLocale.languageCode == 'pt' ||
         systemLocale.languageCode == 'en') {
@@ -41,7 +40,7 @@ class TranslationService extends ChangeNotifier {
     } else {
       _locale = const Locale('en');
     }
-    _loadTranslations();
+    await _loadTranslations();
   }
 
   String translate(String key) {
