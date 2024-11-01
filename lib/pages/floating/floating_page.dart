@@ -17,7 +17,10 @@ class FloatingPage extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: const Center(
-              child: Text('Floating page'),
+              child: Text(
+                'Floating page',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
           Positioned(
@@ -28,20 +31,39 @@ class FloatingPage extends StatelessWidget {
                 Column(
                   children: [
                     FloatingActionButton(
-                      onPressed: () {},
-                      child: const Icon(Icons.star),
-                    ),
-                    const SizedBox(height: 10),
-                    FloatingActionButton(
                       heroTag: 'star1',
                       onPressed: () {},
-                      child: const Icon(Icons.star),
+                      child: const Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.star),
+                          SizedBox(height: 4),
+                          FittedBox(
+                            child: Text(
+                              'Star',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 10),
                     FloatingActionButton(
                       heroTag: 'star2',
                       onPressed: () {},
-                      child: const Icon(Icons.star),
+                      child: const Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.star),
+                          SizedBox(height: 4),
+                          FittedBox(
+                            child: Text(
+                              'Favorite',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -49,21 +71,39 @@ class FloatingPage extends StatelessWidget {
                 Column(
                   children: [
                     FloatingActionButton(
-                      heroTag: 'star3',
+                      heroTag: 'starBorder1',
                       onPressed: () {},
-                      child: const Icon(Icons.star_border),
+                      child: const Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.star_border),
+                          SizedBox(height: 4),
+                          FittedBox(
+                            child: Text(
+                              'Star Border',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 10),
                     FloatingActionButton(
-                      heroTag: 'star4',
+                      heroTag: 'starBorder2',
                       onPressed: () {},
-                      child: const Icon(Icons.star_border),
-                    ),
-                    const SizedBox(height: 10),
-                    FloatingActionButton(
-                      heroTag: 'star5',
-                      onPressed: () {},
-                      child: const Icon(Icons.star_border),
+                      child: const Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.star_border),
+                          SizedBox(height: 4),
+                          FittedBox(
+                            child: Text(
+                              'Big Star Border',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -78,19 +118,37 @@ class FloatingPage extends StatelessWidget {
                 FloatingActionButton(
                   heroTag: 'favorite1',
                   onPressed: () {},
-                  child: const Icon(Icons.favorite),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.favorite),
+                      SizedBox(height: 4),
+                      FittedBox(
+                        child: Text(
+                          'Favorite',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 10),
                 FloatingActionButton(
                   heroTag: 'favorite2',
                   onPressed: () {},
-                  child: const Icon(Icons.favorite),
-                ),
-                const SizedBox(height: 10),
-                FloatingActionButton(
-                  heroTag: 'favorite3',
-                  onPressed: () {},
-                  child: const Icon(Icons.favorite),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.favorite),
+                      SizedBox(height: 4),
+                      FittedBox(
+                        child: Text(
+                          'Like',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -103,19 +161,37 @@ class FloatingPage extends StatelessWidget {
                 FloatingActionButton(
                   heroTag: 'arrowBack1',
                   onPressed: () {},
-                  child: const Icon(Icons.arrow_back),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.arrow_back),
+                      SizedBox(height: 4),
+                      FittedBox(
+                        child: Text(
+                          'Back',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 10),
                 FloatingActionButton(
                   heroTag: 'arrowBack2',
                   onPressed: () {},
-                  child: const Icon(Icons.arrow_back),
-                ),
-                const SizedBox(height: 10),
-                FloatingActionButton(
-                  heroTag: 'arrowBack3',
-                  onPressed: () {},
-                  child: const Icon(Icons.arrow_back),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.arrow_back),
+                      SizedBox(height: 4),
+                      FittedBox(
+                        child: Text(
+                          'Back',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -128,19 +204,37 @@ class FloatingPage extends StatelessWidget {
                 FloatingActionButton(
                   heroTag: 'arrowForward1',
                   onPressed: () {},
-                  child: const Icon(Icons.arrow_forward),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.arrow_forward),
+                      SizedBox(height: 4),
+                      FittedBox(
+                        child: Text(
+                          'Forward',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 10),
                 FloatingActionButton(
                   heroTag: 'arrowForward2',
                   onPressed: () {},
-                  child: const Icon(Icons.arrow_forward),
-                ),
-                const SizedBox(height: 10),
-                FloatingActionButton(
-                  heroTag: 'arrowForward3',
-                  onPressed: () {},
-                  child: const Icon(Icons.arrow_forward),
+                  child: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.arrow_forward),
+                      SizedBox(height: 4),
+                      FittedBox(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

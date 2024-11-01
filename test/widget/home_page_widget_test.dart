@@ -24,6 +24,6 @@ void main() {
     await tester.enterText(find.byKey(const Key('inputTitle')), 'Home Page');
     await tester.pumpAndSettle();
     title = find.byKey(const Key('title')).evaluate().single.widget as Text;
-    expect(title.data, equals("Home Page"));
+    expect(title.data, equals('Home Page'));
   });
 }

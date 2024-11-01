@@ -1,3 +1,13 @@
 {
-  "cSpell.words": ["fullscreen", "pageview", "Pageview"]
+  "cSpell.words": [
+    "autovalidate",
+    "fullscreen",
+    "initializers",
+    "interps",
+    "ints",
+    "pageview",
+    "Pageview",
+    "typedef",
+    "unawaited"
+  ]
 }

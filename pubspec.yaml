@@ -13,6 +13,8 @@ dependencies:
   go_router: ^14.3.0
   get_it: ^8.0.2
   watch_it: ^1.5.1
+  gap: ^3.0.1
+  lucid_validation: ^1.1.0
 
 dev_dependencies:
   flutter_test:

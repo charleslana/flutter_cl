@@ -11,7 +11,8 @@ enum AppRoute {
   rotation,
   language,
   pageview,
-  floating
+  floating,
+  form
 }
 
 extension AppRouteExtension on AppRoute {
@@ -43,6 +44,8 @@ extension AppRouteExtension on AppRoute {
         return '/pageview';
       case AppRoute.floating:
         return '/floating';
+      case AppRoute.form:
+        return '/form';
       default:
         return '';
     }

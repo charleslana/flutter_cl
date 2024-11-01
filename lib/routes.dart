@@ -4,6 +4,7 @@ import 'package:flutter_cl/enum/app_route.dart';
 import 'package:flutter_cl/pages/blank/blank_page.dart';
 import 'package:flutter_cl/pages/detail/detail_page.dart';
 import 'package:flutter_cl/pages/floating/floating_page.dart';
+import 'package:flutter_cl/pages/form/form_page.dart';
 import 'package:flutter_cl/pages/fullscreen/fullscreen_page.dart';
 import 'package:flutter_cl/pages/home/home_page.dart';
 import 'package:flutter_cl/pages/language/language_page.dart';
@@ -16,18 +17,18 @@ import 'package:flutter_cl/services/auth_service.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter routes = GoRouter(
-  errorBuilder: ((context, state) => Scaffold(
-        appBar: AppBar(
-          title: const Text('Not found page'),
-          centerTitle: true,
-        ),
-        body: const Center(
-          child: Text(
-            'This my custom error page',
-            textAlign: TextAlign.center,
-          ),
-        ),
-      )),
+  errorBuilder: (context, state) => Scaffold(
+    appBar: AppBar(
+      title: const Text('Not found page'),
+      centerTitle: true,
+    ),
+    body: const Center(
+      child: Text(
+        'This my custom error page',
+        textAlign: TextAlign.center,
+      ),
+    ),
+  ),
   refreshListenable: getIt<AuthService>(),
   redirect: (context, state) {
     print('route: ${state.uri.path}');
@@ -36,7 +37,9 @@ final GoRouter routes = GoRouter(
     if (!isAuthenticated) {
       return isLoginRoute ? null : AppRoute.login.path;
     }
-    if (isLoginRoute) return AppRoute.main.path;
+    if (isLoginRoute) {
+      return AppRoute.main.path;
+    }
     return null;
   },
   initialLocation: AppRoute.main.path,
@@ -68,6 +71,10 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: AppRoute.floating.path,
       builder: (context, state) => const FloatingPage(),
+    ),
+    GoRoute(
+      path: AppRoute.form.path,
+      builder: (context, state) => const FormPage(),
     ),
     GoRoute(
       path: AppRoute.fullscreen.path,

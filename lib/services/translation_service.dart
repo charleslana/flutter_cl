@@ -1,6 +1,7 @@
 import 'dart:convert';
-import 'package:flutter/services.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TranslationService extends ChangeNotifier {
   TranslationService() {
@@ -25,8 +26,10 @@ class TranslationService extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setLocale(Locale locale) async {
-    if (locale == _locale) return;
+  Future<void> setLocale(Locale locale) async {
+    if (locale == _locale) {
+      return;
+    }
     _locale = locale;
     await _loadTranslations();
     notifyListeners();

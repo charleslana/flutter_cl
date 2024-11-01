@@ -4,7 +4,8 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
-setupProviders() {
-  getIt.registerSingleton<TranslationService>(TranslationService());
-  getIt.registerSingleton<AuthService>(AuthService());
+void setupProviders() {
+  getIt
+    ..registerSingleton<TranslationService>(TranslationService())
+    ..registerSingleton<AuthService>(AuthService());
 }
