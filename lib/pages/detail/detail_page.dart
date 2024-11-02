@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cl/entities/detail.dart';
+import 'package:flutter_cl/models/detail.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key, required this.detail});

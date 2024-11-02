@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_cl/entities/game.dart';
+import 'package:flutter_cl/models/game.dart';
 
 class MockService {
   Future<List<Game>> loadGames() async {

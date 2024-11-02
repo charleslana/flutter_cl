@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cl/entities/detail.dart';
 import 'package:flutter_cl/enum/app_route.dart';
+import 'package:flutter_cl/models/detail.dart';
+import 'package:flutter_cl/models/game.dart';
 import 'package:flutter_cl/pages/blank/blank_page.dart';
 import 'package:flutter_cl/pages/detail/detail_page.dart';
 import 'package:flutter_cl/pages/floating/floating_page.dart';
 import 'package:flutter_cl/pages/form/form_page.dart';
 import 'package:flutter_cl/pages/fullscreen/fullscreen_page.dart';
+import 'package:flutter_cl/pages/game/game_details_page.dart';
+import 'package:flutter_cl/pages/game/game_page.dart';
 import 'package:flutter_cl/pages/home/home_page.dart';
 import 'package:flutter_cl/pages/language/language_page.dart';
 import 'package:flutter_cl/pages/login/login_page.dart';
@@ -80,6 +83,17 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: AppRoute.mock.path,
       builder: (context, state) => const MockPage(),
+    ),
+    GoRoute(
+      path: AppRoute.game.path,
+      builder: (context, state) => const GamePage(),
+    ),
+    GoRoute(
+      path: AppRoute.gameDetail.path,
+      builder: (context, state) {
+        final Game game = state.extra as Game;
+        return GameDetailsPage(game: game);
+      },
     ),
     GoRoute(
       path: AppRoute.fullscreen.path,

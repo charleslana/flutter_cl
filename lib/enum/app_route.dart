@@ -13,7 +13,9 @@ enum AppRoute {
   pageview,
   floating,
   form,
-  mock
+  mock,
+  game,
+  gameDetail
 }
 
 extension AppRouteExtension on AppRoute {
@@ -49,6 +51,10 @@ extension AppRouteExtension on AppRoute {
         return '/form';
       case AppRoute.mock:
         return '/mock';
+      case AppRoute.game:
+        return '/game';
+      case AppRoute.gameDetail:
+        return '/game-detail';
       default:
         return '';
     }

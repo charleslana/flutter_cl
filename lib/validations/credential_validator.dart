@@ -1,4 +1,4 @@
-import 'package:flutter_cl/entities/credential.dart';
+import 'package:flutter_cl/models/credential.dart';
 import 'package:flutter_cl/validations/lower_case_validator.dart';
 import 'package:flutter_cl/validations/trim_and_not_empty_validator.dart';
 import 'package:lucid_validation/lucid_validation.dart';

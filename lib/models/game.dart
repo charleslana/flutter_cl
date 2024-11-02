@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:flutter_cl/models/comment.dart';
+
 class Game {
   Game({
     required this.id,
@@ -11,7 +13,7 @@ class Game {
     required this.year,
     required this.ratingMember,
     required this.ratingCritic,
-    required this.color,
+    this.color = const Color(0xFF212121),
   });
 
   factory Game.fromMap(Map<String, dynamic> map) {
@@ -42,6 +44,7 @@ class Game {
   int ratingMember;
   int ratingCritic;
   Color color;
+  List<Comment> comments = [];
 
   Game copyWith({
     String? id,

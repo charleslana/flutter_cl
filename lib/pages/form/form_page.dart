@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cl/entities/credential.dart';
+import 'package:flutter_cl/models/credential.dart';
 import 'package:flutter_cl/validations/credential_validator.dart';
 import 'package:gap/gap.dart';
 
