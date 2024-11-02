@@ -12,7 +12,8 @@ enum AppRoute {
   language,
   pageview,
   floating,
-  form
+  form,
+  mock
 }
 
 extension AppRouteExtension on AppRoute {
@@ -46,6 +47,8 @@ extension AppRouteExtension on AppRoute {
         return '/floating';
       case AppRoute.form:
         return '/form';
+      case AppRoute.mock:
+        return '/mock';
       default:
         return '';
     }

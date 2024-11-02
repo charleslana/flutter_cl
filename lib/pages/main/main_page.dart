@@ -69,6 +69,10 @@ class MainPage extends StatelessWidget {
               onPressed: () => context.push(AppRoute.form.path),
               child: const Text('Form page'),
             ),
+            TextButton(
+              onPressed: () => context.push(AppRoute.mock.path),
+              child: const Text('Mock page'),
+            ),
             OutlinedButton(
               onPressed: () => getIt<AuthService>().logout(),
               child: const Text('Logout'),

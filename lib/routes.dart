@@ -10,6 +10,7 @@ import 'package:flutter_cl/pages/home/home_page.dart';
 import 'package:flutter_cl/pages/language/language_page.dart';
 import 'package:flutter_cl/pages/login/login_page.dart';
 import 'package:flutter_cl/pages/main/main_page.dart';
+import 'package:flutter_cl/pages/mock/mock_page.dart';
 import 'package:flutter_cl/pages/pageview/pageview_page.dart';
 import 'package:flutter_cl/pages/transition/transition_page.dart';
 import 'package:flutter_cl/providers.dart';
@@ -75,6 +76,10 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: AppRoute.form.path,
       builder: (context, state) => const FormPage(),
+    ),
+    GoRoute(
+      path: AppRoute.mock.path,
+      builder: (context, state) => const MockPage(),
     ),
     GoRoute(
       path: AppRoute.fullscreen.path,

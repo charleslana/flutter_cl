@@ -12,6 +12,13 @@ flutter analyze
 dart fix --apply
 ```
 
+## Open emulator
+
+```bash
+emulator -list-avds
+emulator -avd Pixel_API_30
+```
+
 ## go router params
 
 [Go router params](https://stackoverflow.com/questions/77092934/parameter-passing-causes-an-error-when-using-go-router)
