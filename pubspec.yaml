@@ -19,6 +19,7 @@ dependencies:
   cached_network_image: ^3.4.1
   http: ^1.2.2
   timeago: ^3.7.0
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cl/controllers/theme_controller.dart';
 import 'package:flutter_cl/enum/app_route.dart';
 import 'package:flutter_cl/providers.dart';
 import 'package:flutter_cl/services/auth_service.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
 class MainPage extends StatelessWidget {
@@ -9,7 +11,52 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeController controller = ThemeController.to;
+
     return Scaffold(
+      appBar: AppBar(
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
+            ),
+            Text('Main title'),
+          ],
+        ),
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(Icons.more_vert),
+            itemBuilder: (_) => [
+              PopupMenuItem<dynamic>(
+                child: ListTile(
+                  leading: Obx(() => controller.isDarkMode
+                      ? const Icon(Icons.brightness_7)
+                      : const Icon(Icons.brightness_2)),
+                  title: Obx(() => controller.isDarkMode
+                      ? const Text('Light')
+                      : const Text('Dark')),
+                  onTap: controller.toggleThemeMode,
+                ),
+              ),
+              PopupMenuItem<dynamic>(
+                  child: ListTile(
+                leading: const Icon(Icons.exit_to_app),
+                title: const Text('Sair'),
+                onTap: () {
+                  Navigator.pop(context);
+                  getIt<AuthService>().logout();
+                },
+              )),
+            ],
+          ),
+        ],
+      ),
       body: Center(
         child: Wrap(
           alignment: WrapAlignment.center,

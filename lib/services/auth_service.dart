@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AuthService extends ChangeNotifier {
-  bool isAuthenticated = false;
+  bool _isAuthenticated = false;
+
+  bool get isAuthenticated => _isAuthenticated;
 
   void login() {
-    isAuthenticated = true;
+    _isAuthenticated = true;
     notifyListeners();
   }
 
   void logout() {
-    isAuthenticated = false;
+    _isAuthenticated = false;
     notifyListeners();
   }
 }
