@@ -15,20 +15,7 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
-            ),
-            Text('Main title'),
-          ],
-        ),
+        title: const Text('Main title'),
         actions: [
           PopupMenuButton(
             icon: const Icon(Icons.more_vert),

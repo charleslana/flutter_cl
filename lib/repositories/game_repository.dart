@@ -20,6 +20,10 @@ class GameRepository extends ChangeNotifier {
 
   UnmodifiableListView<Game> get games => UnmodifiableListView<Game>(_games);
 
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
+
   Future<bool> addComment(Game game, Comment comment) async {
     final url = Uri.parse('$baseUrlApi/games/${game.id}/comments');
     final response = await http.post(url, body: {
@@ -33,6 +37,24 @@ class GameRepository extends ChangeNotifier {
       return true;
     }
     return false;
+  }
+
+  Future<void> loadGames() async {
+    _isLoading = true;
+    try {
+      const url = '$baseUrlApi/games';
+      final cache = GameCache();
+      _loadCache(cache, url);
+      await _syncWithGameApi(url, cache, _addToGameList);
+      await _syncWithCommentsApi();
+      notifyListeners();
+    } on HttpException catch (error) {
+      debugPrint('Erro ao conectar a API: $error');
+    } on TimeoutException {
+      debugPrint('Timeout excedido ao conectar a API!');
+    } finally {
+      _isLoading = false;
+    }
   }
 
   void _addToGameList(dynamic gameList) {
@@ -80,21 +102,6 @@ class GameRepository extends ChangeNotifier {
       }
     }
     notifyListeners();
-  }
-
-  Future<void> loadGames() async {
-    try {
-      const url = '$baseUrlApi/games';
-      final cache = GameCache();
-      _loadCache(cache, url);
-      await _syncWithGameApi(url, cache, _addToGameList);
-      await _syncWithCommentsApi();
-      notifyListeners();
-    } on HttpException catch (error) {
-      debugPrint('Erro ao conectar a API: $error');
-    } on TimeoutException {
-      debugPrint('Timeout excedido ao conectar a API!');
-    }
   }
 
   void _addToGameComments(Game game, List<dynamic> comments) {

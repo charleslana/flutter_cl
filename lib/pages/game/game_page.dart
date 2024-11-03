@@ -25,18 +25,37 @@ class _GamePageState extends State<GamePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Top Games'),
+        title: gameRepository.isLoading
+            ? const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    ),
+                  ),
+                  Text('Atualizando'),
+                ],
+              )
+            : const Text('Top games'),
+            centerTitle: true,
       ),
       body: gameRepository.games.isEmpty
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : GamesGridView(
-              games: List.from(
-                gameRepository.games.map(
-                  (Game game) => GameImageCard(
-                    game: game,
-                    onTap: () => openDetails(game),
+          : RefreshIndicator(
+              onRefresh: gameRepository.loadGames,
+              child: GamesGridView(
+                games: List.from(
+                  gameRepository.games.map(
+                    (Game game) => GameImageCard(
+                      game: game,
+                      onTap: () => openDetails(game),
+                    ),
                   ),
                 ),
               ),
