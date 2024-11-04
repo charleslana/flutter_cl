@@ -27,6 +27,18 @@ http://127.0.0.1:9100
 url: Connecting to VM Service at ws://127.0.0.1:40523/gyYbwl6MGhg=/ws
 ```
 
+## Gerar mockito
+
+```bash
+dart run build_runner build
+```
+
+## Executar tests
+
+```bash
+flutter test test/repositories/todo_repository_test.dart
+```
+
 ## go router params
 
 [Go router params](https://stackoverflow.com/questions/77092934/parameter-passing-causes-an-error-when-using-go-router)
