@@ -15,7 +15,10 @@ enum AppRoute {
   form,
   mock,
   game,
-  gameDetail
+  gameDetail,
+  count,
+  signal,
+  logout
 }
 
 extension AppRouteExtension on AppRoute {
@@ -55,6 +58,12 @@ extension AppRouteExtension on AppRoute {
         return '/game';
       case AppRoute.gameDetail:
         return '/game-detail';
+      case AppRoute.count:
+        return '/count';
+      case AppRoute.signal:
+        return '/signal';
+      case AppRoute.logout:
+        return '/logout';
       default:
         return '';
     }

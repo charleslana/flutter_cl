@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cl/controllers/login_controller.dart';
 import 'package:flutter_cl/enum/app_route.dart';
 import 'package:flutter_cl/models/detail.dart';
 import 'package:flutter_cl/models/game.dart';
 import 'package:flutter_cl/pages/blank/blank_page.dart';
+import 'package:flutter_cl/pages/count/count_page.dart';
 import 'package:flutter_cl/pages/detail/detail_page.dart';
 import 'package:flutter_cl/pages/floating/floating_page.dart';
 import 'package:flutter_cl/pages/form/form_page.dart';
@@ -12,9 +14,11 @@ import 'package:flutter_cl/pages/game/game_page.dart';
 import 'package:flutter_cl/pages/home/home_page.dart';
 import 'package:flutter_cl/pages/language/language_page.dart';
 import 'package:flutter_cl/pages/login/login_page.dart';
+import 'package:flutter_cl/pages/logout/logout_page.dart';
 import 'package:flutter_cl/pages/main/main_page.dart';
 import 'package:flutter_cl/pages/mock/mock_page.dart';
 import 'package:flutter_cl/pages/pageview/pageview_page.dart';
+import 'package:flutter_cl/pages/signal/signal_page.dart';
 import 'package:flutter_cl/pages/transition/transition_page.dart';
 import 'package:flutter_cl/providers.dart';
 import 'package:flutter_cl/services/auth_service.dart';
@@ -83,6 +87,21 @@ final GoRouter routes = GoRouter(
     GoRoute(
       path: AppRoute.mock.path,
       builder: (context, state) => const MockPage(),
+    ),
+    GoRoute(
+      path: AppRoute.count.path,
+      builder: (context, state) => CountPage(),
+    ),
+    GoRoute(
+      path: AppRoute.signal.path,
+      builder: (context, state) => const SignalPage(),
+    ),
+    GoRoute(
+      path: AppRoute.logout.path,
+      builder: (context, state) {
+        final LoginController controller = state.extra as LoginController;
+        return LogoutPage(controller: controller);
+      },
     ),
     GoRoute(
       path: AppRoute.game.path,
