@@ -16,7 +16,7 @@ class _LogoutPageState extends State<LogoutPage> with SignalsMixin {
   @override
   void initState() {
     effect(() {
-      if (!widget.controller.isLoggedIn()) {
+      if (!widget.controller.isLoggedIn() && mounted) {
         context.pop();
       }
     });
